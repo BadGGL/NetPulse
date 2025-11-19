@@ -1,0 +1,447 @@
+/* ==================== CSS Variables ==================== */
+:root {
+    --bg-primary: #f5f5f7;
+    --bg-secondary: #ffffff;
+    --bg-card: rgba(255, 255, 255, 0.9);
+    --text-primary: #1d1d1f;
+    --text-secondary: #86868b;
+    --accent-blue: #007aff;
+    --accent-blue-hover: #0051d5;
+    --status-excellent: #34c759;
+    --status-good: #30d158;
+    --status-fair: #ff9500;
+    --status-poor: #ff3b30;
+    --status-offline: #8e8e93;
+    --border-color: rgba(0, 0, 0, 0.1);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="dark"] {
+    --bg-primary: #1c1c1e;
+    --bg-secondary: #2c2c2e;
+    --bg-card: rgba(44, 44, 46, 0.9);
+    --text-primary: #f5f5f7;
+    --text-secondary: #98989d;
+    --accent-blue: #0a84ff;
+    --accent-blue-hover: #409cff;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 380px;
+    min-height: 450px;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    overflow-y: auto;
+}
+
+.container {
+    padding: 12px;
+}
+
+/* ==================== Control Panel ==================== */
+.control-panel {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+    align-items: center;
+}
+
+.btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    height: 32px;
+}
+
+.btn-primary {
+    background: var(--accent-blue);
+    color: white;
+    flex: 1;
+}
+
+.btn-primary:hover {
+    background: var(--accent-blue-hover);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.theme-toggle {
+    width: 32px;
+    height: 32px;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle::before {
+    content: '🌙';
+    font-size: 14px;
+}
+
+[data-theme="dark"] .theme-toggle::before {
+    content: '☀️';
+}
+
+/* ==================== Settings ==================== */
+.settings {
+    background: var(--bg-card);
+    border-radius: 10px;
+    padding: 8px 12px;
+    margin-bottom: 8px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.setting-group {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--text-secondary);
+}
+
+.setting-group label {
+    font-weight: 500;
+}
+
+.setting-group select,
+.setting-group input[type="number"] {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 2px 6px;
+    font-size: 11px;
+    height: 24px;
+}
+
+.setting-group input[type="number"] {
+    width: 40px;
+    text-align: center;
+}
+
+.api-status {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--status-excellent);
+    display: inline-block;
+}
+
+.api-status.loading {
+    background: var(--status-fair);
+    animation: pulse 1s infinite;
+}
+
+.api-status.error {
+    background: var(--status-poor);
+}
+
+/* ==================== IP Info ==================== */
+.ip-info-card {
+    background: linear-gradient(135deg, var(--accent-blue) 0%, #5856d6 100%);
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 8px;
+    color: white;
+    font-size: 11px;
+    box-shadow: var(--shadow-sm);
+}
+
+.ip-loading {
+    text-align: center;
+    padding: 4px;
+}
+
+.ip-info-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.ip-value {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.ip-location {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    opacity: 0.95;
+}
+
+.country-flag {
+    font-size: 16px;
+}
+
+.ip-details {
+    display: flex;
+    gap: 8px;
+    margin-top: 6px;
+    padding-top: 6px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.ip-detail-item {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    padding: 4px 8px;
+    text-align: center;
+}
+
+.ip-detail-label {
+    font-size: 9px;
+    opacity: 0.8;
+    margin-bottom: 1px;
+    text-transform: uppercase;
+}
+
+.ip-detail-value {
+    font-size: 10px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ==================== Stats ==================== */
+.stats-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.stat-card {
+    background: var(--bg-card);
+    border-radius: 8px;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.stat-label {
+    font-size: 9px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    margin-bottom: 2px;
+}
+
+.stat-value {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.stat-value span {
+    font-size: 10px;
+    color: var(--text-secondary);
+    margin-left: 1px;
+}
+
+/* ==================== Websites Grid ==================== */
+.websites-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.website-card {
+    background: var(--bg-card);
+    border-radius: 8px;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.website-card:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+    background: var(--bg-secondary);
+}
+
+.website-card.testing {
+    animation: pulse 1.5s infinite;
+}
+
+.website-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+}
+
+.website-logo {
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.website-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.website-name {
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.latency-display {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    min-width: 50px;
+}
+
+.latency-value {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 3px;
+}
+
+.status-indicator {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+
+/* Status colors for indicator dots */
+.status-indicator.status-excellent {
+    background: var(--status-excellent);
+}
+
+.status-indicator.status-good {
+    background: var(--status-good);
+}
+
+.status-indicator.status-fair {
+    background: var(--status-fair);
+}
+
+.status-indicator.status-poor {
+    background: var(--status-poor);
+}
+
+.status-indicator.status-offline {
+    background: var(--status-offline);
+}
+
+/* Text colors for latency values */
+.latency-value.status-excellent {
+    color: var(--status-excellent);
+}
+
+.latency-value.status-good {
+    color: var(--status-good);
+}
+
+.latency-value.status-fair {
+    color: var(--status-fair);
+}
+
+.latency-value.status-poor {
+    color: var(--status-poor);
+}
+
+.latency-value.status-offline {
+    color: var(--text-secondary);
+}
+
+/* ==================== Loading ==================== */
+.spinner {
+    width: 14px;
+    height: 14px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* ==================== Footer ==================== */
+footer {
+    text-align: center;
+    padding: 4px 0;
+    font-size: 10px;
+    color: var(--text-secondary);
+    opacity: 0.7;
+}
+
+/* ==================== Scrollbar ==================== */
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--text-secondary);
+    border-radius: 2px;
+    opacity: 0.5;
+}

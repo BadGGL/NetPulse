@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网络延迟检测器</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Control Panel -->
+        <div class="control-panel">
+            <button class="btn btn-primary" id="testAllBtn">
+                <span id="testAllIcon">▶️</span>
+                <span id="testAllText">测试所有</span>
+            </button>
+            <div class="theme-toggle" id="themeToggle" title="切换主题"></div>
+        </div>
+
+        <!-- Settings -->
+        <div class="settings">
+            <div class="setting-group">
+                <label>API:</label>
+                <select id="apiSelector">
+                    <option value="auto">自动</option>
+                    <option value="0">ipapi.co</option>
+                    <option value="1">ipinfo.io</option>
+                    <option value="2">ip-api.com</option>
+                    <option value="3">Cloudflare</option>
+                    <option value="4">ipify.org</option>
+                </select>
+                <span class="api-status" id="apiStatus"></span>
+            </div>
+            <div class="setting-group">
+                <input type="checkbox" id="autoRefresh">
+                <label for="autoRefresh">自动</label>
+                <input type="number" id="refreshInterval" min="5" max="300" value="30">
+                <span>s</span>
+            </div>
+        </div>
+
+        <!-- IP Information -->
+        <div class="ip-info-card" id="ipInfoCard">
+            <div class="ip-loading">
+                <div class="spinner"></div>
+                <p>检测中...</p>
+            </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-bar">
+            <div class="stat-card">
+                <div class="stat-label">平均延迟</div>
+                <div class="stat-value" id="avgLatency">--<span>ms</span></div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">在线</div>
+                <div class="stat-value" id="onlineCount">--<span>/12</span></div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">最后测试</div>
+                <div class="stat-value" id="lastTest">--:--</div>
+            </div>
+        </div>
+
+        <!-- Websites Grid -->
+        <div class="websites-grid" id="websitesGrid"></div>
+
+        <!-- Footer -->
+        <footer>
+            <p>💡 点击卡片单独测试</p>
+        </footer>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+
+</html>
