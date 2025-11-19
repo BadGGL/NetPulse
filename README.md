@@ -47,7 +47,7 @@
 ### 方法一: 开发者模式安装(推荐)
 
 1. **下载插件文件**
-   - 下载整个 `chrome-extension` 文件夹
+   - 下载整个 `cNetPulse` 文件夹
 
 2. **打开Chrome扩展管理页面**
    - 在Chrome地址栏输入: `chrome://extensions/`
@@ -68,7 +68,7 @@
 ### 方法二: 打包安装
 
 1. 在扩展管理页面点击"打包扩展程序"
-2. 选择 `chrome-extension` 文件夹
+2. 选择 `NetPulse` 文件夹
 3. 生成 `.crx` 文件
 4. 拖拽 `.crx` 文件到扩展管理页面安装
 
@@ -118,7 +118,7 @@
 
 ### 文件结构
 ```
-chrome-extension/
+NetPulse/
 ├── manifest.json       # 插件配置文件
 ├── popup.html         # 弹出窗口HTML
 ├── popup.css          # 样式文件
