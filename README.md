@@ -1,5 +1,13 @@
 一个用于检测常用国外网站访问延迟的Chrome浏览器插件,帮助您快速判断VPN连接质量。
 
+## 界面展示
+
+<div align="center">
+  <img src="pic/info1.png" alt="项目示意图" height="500">
+  
+  *图片描述文字*
+</div>
+
 ## 功能特点
 
 ### 🌐 多网站延迟检测
