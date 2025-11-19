@@ -4,8 +4,6 @@
 
 <div align="center">
   <img src="pic/info1.png" alt="项目示意图" height="500">
-  
-  *图片描述文字*
 </div>
 
 ## 功能特点
